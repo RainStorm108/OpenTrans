@@ -1,4 +1,4 @@
-__version__ = "2026.01"
+__version__ = "v0.1.0"
 
 from .cache_manager import CacheManager
 from .hasher import get_file_hash
