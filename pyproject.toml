@@ -35,7 +35,7 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/RainStorm108/opentrans"
-Documentation = "https://rainstorm108.github.io/opentrans/"
+Documentation = "https://rainstorm108.github.io/OpenTrans/"
 Issues = "https://github.com/RainStorm108/opentrans/issues"
 
 [project.scripts]
