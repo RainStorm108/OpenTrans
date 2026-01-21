@@ -94,11 +94,13 @@ DocTrans/
 │   └── doctrans/
 │       ├── __init__.py        
 │       ├── main.py            # CLI interface using Click
-│       ├── settings.py        # Pydantic V2 settings management
-│       ├── translator.py      # Ollama API client & Placeholder logic
-│       └── ...
-├── tests/                     # Comprehensive Pytest suite
-│   ├── conftest.py
+│       ├── settings.py        # Translate settings
+│       ├── translator.py      # Translate logic
+│       ├── cache_manager.py   # Manages translation caching using content hashing to skip unchanged files.
+│       └── hasher.py          # Hash file for cache
+├── tests/
+│   ├── test_cache_manager.py
+│   ├── test_hasher.py
 │   └── test_translator.py
 ├── config.yaml                # Global settings (model, language, etc.)
 ├── pyproject.toml
