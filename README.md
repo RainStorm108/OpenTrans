@@ -1,6 +1,6 @@
 # OpenTrans
 
-**OpenTrans** is a privacy-first, local-LLM batch translation utility using Ollama. It is designed to mirror a source directory into a target language while preserving the exact file hierarchy.
+**OpenTrans** is a privacy-first, local-LLM batch translation utility powered by Ollama. It mirrors a source directory into a target language while preserving the exact file hierarchy, making it ideal for documenting software, translating blogs, or localizing static sites.
 
 ## Key Features
 
@@ -11,9 +11,34 @@
 * **Smart Caching:** Uses hashing to track file changes. Only files that have been modified since the last run are sent to the LLM, saving significant time and compute resources.
 * **Resilient File Handling:** Automatically pulls required models from Ollama with a real-time progress bar if they are missing.
 
-## Quick Usage
+## Installation
 
-Simply provide the input directory and the target output directory.
+**Prerequisites**: You must have [Ollama](https://ollama.com/download) installed and running.
+
+**Option 1: Install via PyPI (Recommended)**
+
+```py
+pip install opentrans
+```
+
+**Option 2: Install via uv**
+
+```py
+uv tool install opentrans
+```
+
+**Option 3: From Source**
+
+```
+git clone https://github.com/rainstorm108/OpenTrans.git
+cd OpenTrans
+uv tool install .
+```
+
+## Usage
+
+### Basic Command
+The simplest way to run OpenTrans is by specifying the input and output directories:
 
 ```bash
 opentrans ./docs ./translated_docs --config ./config.yaml
@@ -33,60 +58,43 @@ Translating Files: 100%|██████████████████�
 Complete.
 ```
 
-## Running Examples
+### Configuration (config.yaml)
+OpenTrans relies on a YAML configuration file to define the model and target language. See [example](config.yaml).
+
+
+### Running Examples
 
 ```bash
-# Translating Docusaurus
 opentrans ./Example/Docusaurus/docs ./Example/Docusaurus/i18n/zh-hans/docusaurus-plugin-content-blog/current ./config.yaml    
 ```
 
-## Installation
+## Local Development
 
-### Setup 
-
-OpenTrans requires Ollama to be installed and running on your local machine.
-
-1. Install Ollama: Follow instructions at [Ollama](https://ollama.com/download)
-
-2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-
-```shell
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv tool install .
-```
-
-3. Install OpenTrans
-
+1. Clone the repository
 ```bash
-git clone https://github.com/rainstorm108/OpenTrans.git
+git clone [https://github.com/rainstorm108/OpenTrans.git](https://github.com/rainstorm108/OpenTrans.git)
 cd OpenTrans
-uv pip install .
 ```
 
-4. run
-
-```bash
-opentrans ./docs ./translated_docs --config ./config.yaml
-```
-
-### For Developers
-
-1. Environment Setup
+2. Set up the environment (using uv)
 
 ```bash
 uv sync
-source .venv/bin/activte
-hatch shell
+source .venv/bin/activate
+```
+
+3. Install in editable mode
+
+```bash
 uv pip install -e .
 ```
 
-2. Running Tests
-
+4. Run tests
 ```bash
 hatch test
 ```
 
-## Folder Structure
+## Project Structure
 
 ```text
 OpenTrans/
@@ -94,18 +102,14 @@ OpenTrans/
 │   └── opentrans/
 │       ├── __init__.py        
 │       ├── main.py            # CLI interface using Click
-│       ├── settings.py        # Translate settings
-│       ├── translator.py      # Translate logic
-│       ├── cache_manager.py   # Manages translation caching using content hashing to skip unchanged files.
-│       └── hasher.py          # Hash file for cache
+│       ├── settings.py        # Configuration management
+│       ├── translator.py      # Core translation logic
+│       ├── cache_manager.py   # Caching system
+│       └── hasher.py          # File content hashing
 ├── tests/
-│   ├── test_cache_manager.py
-│   ├── test_hasher.py
-│   └── test_translator.py
-├── config.yaml                # Global settings (model, language, etc.)
+├── config.yaml                
 ├── pyproject.toml
-└── README.md 
-
+└── README.md
 ```
 
 ## Workflow
