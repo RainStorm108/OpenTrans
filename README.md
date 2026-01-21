@@ -108,8 +108,6 @@ DocTrans/
 
 ## Workflow
 
-The tool follows a "Scan-Protect-Translate-Restore" pipeline:
-
 ```mermaid
 graph TD
     %% Setup Phase
