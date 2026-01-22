@@ -26,6 +26,7 @@ dependencies = [
   "tree-sitter-languages>=1.10.2",
   "mkdocs-material>=9.7.1",
   "mkdocs-include-markdown-plugin>=7.2.0",
+  "mkdocs[i18n]>=1.6.1",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

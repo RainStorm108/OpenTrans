@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#key-features" class="md-skip">
           跳转至
         </a>
       
@@ -338,10 +338,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主要功能
+        Key Features
       
     </span>
   </a>
@@ -443,10 +443,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#todo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        未完成事项
+        Todo
       
     </span>
   </a>
@@ -454,10 +454,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       
-        许可证
+        License
       
     </span>
   </a>
@@ -497,10 +497,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        主要功能
+        Key Features
       
     </span>
   </a>
@@ -602,10 +602,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#todo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        未完成事项
+        Todo
       
     </span>
   </a>
@@ -613,10 +613,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       
-        许可证
+        License
       
     </span>
   </a>
@@ -656,15 +656,15 @@ OpenTrans
 </p>
 
 <hr />
-<p><strong>文档：</strong> <a href="https://rainstorm108.github.io/OpenTrans/">https://rainstorm108.github.io/OpenTrans/</a></p>
-<p><strong>PyPI：</strong> <a href="https://pypi.org/project/opentrans/">https://pypi.org/project/opentrans/</a></p>
-<p><strong>源代码：</strong> <a href="https://github.com/RainStorm108/OpenTrans">https://github.com/RainStorm108/OpenTrans</a></p>
+<p><strong>Documentation:</strong> <a href="https://rainstorm108.github.io/OpenTrans/">https://rainstorm108.github.io/OpenTrans/</a></p>
+<p><strong>PyPI:</strong> <a href="https://pypi.org/project/opentrans/">https://pypi.org/project/opentrans/</a></p>
+<p><strong>Source Code:</strong> <a href="https://github.com/RainStorm108/OpenTrans">https://github.com/RainStorm108/OpenTrans</a></p>
 <hr />
-<p><strong>OpenTrans</strong> 是一款由 Ollama 驱动的、以隐私为先、本地 LLM 批量翻译工具。它能够将源目录镜像到目标语言，同时保留原始文件结构，非常适合用于编写软件文档、翻译博客或本地化静态网站。</p>
-<h2 id="_1">主要功能</h2>
+<p><strong>OpenTrans</strong> is a privacy-first, local-LLM batch translation utility powered by Ollama. It mirrors a source directory into a target language while preserving the exact file hierarchy, making it ideal for documenting software, translating blogs, or localizing static sites.</p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><strong>本地优先 (Ollama)：</strong> 使用 Gemma、Llama 3 或 DeepSeek 等模型，在本地实现私密且免费的翻译。</li>
-<li><strong>语法保护：</strong> 自动保护代码块 (<code>``), inline code (</code>), LaTeX math ($), and Markdown links from being corrupted by the LLM.</li>
+<li><strong>Local-First (Ollama):</strong> Private, cost-free translation using models like Gemma, Llama 3, or DeepSeek.</li>
+<li><strong>Syntax Shielding:</strong> Automatically protects code blocks (<code>``), inline code (</code>), LaTeX math ($), and Markdown links from being corrupted by the LLM.</li>
 <li><strong>Directory Mirroring:</strong> Recursively replicates your source folder structure in the output destination.</li>
 <li><strong>Parallel Processing:</strong> Uses <code>ThreadPoolExecutor</code> for high-speed batch handling of large file sets.</li>
 <li><strong>Smart Caching:</strong> Uses hashing to track file changes. Only files that have been modified since the last run are sent to the LLM, saving significant time and compute resources.</li>
@@ -673,15 +673,15 @@ OpenTrans
 <h2 id="installation">Installation</h2>
 <p><strong>Prerequisites</strong>: You must have <a href="https://ollama.com/download">Ollama</a> installed and running.</p>
 <p><strong>Option 1: Install via PyPI (Recommended)</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>opentrans
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">opentrans</span>
 </span></code></pre></div>
 <p><strong>Option 2: Install via uv</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>opentrans
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">uv</span> <span class="n">tool</span> <span class="n">install</span> <span class="n">opentrans</span>
 </span></code></pre></div>
 <p><strong>Option 3: From Source</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rainstorm108/OpenTrans.git
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>OpenTrans
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git clone https://github.com/rainstorm108/OpenTrans.git
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cd OpenTrans
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>uv tool install .
 </span></code></pre></div>
 <h2 id="usage">Usage</h2>
 <h3 id="basic-command">Basic Command</h3>
@@ -689,19 +689,19 @@ OpenTrans
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>opentrans<span class="w"> </span>./docs<span class="w"> </span>./translated_docs<span class="w"> </span>--config<span class="w"> </span>./config.yaml
 </span></code></pre></div>
 <p><strong>Example Output:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>目标语言：中文
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>输入： /home/user/Projects/OpenTrans/docs
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>输出： /home/user/Projects/OpenTrans/translated_docs
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>使用模型： translategemma:4b
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Target Language: Chinese
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Input:  /home/user/Projects/OpenTrans/docs
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Output: /home/user/Projects/OpenTrans/translated_docs
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Using Model: translategemma:4b
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>翻译文件： 100%|████████████████████████████████| 12/12 [00:45&lt;00:00, 3.7s/file]
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Translating Files: 100%|████████████████████████████████| 12/12 [00:45&lt;00:00, 3.7s/file]
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>完成。
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Complete.
 </span></code></pre></div>
 <h3 id="configuration-configyaml">Configuration (config.yaml)</h3>
 <p>OpenTrans relies on a YAML configuration file to define the model and target language. See <a href="config.yaml">example</a>.</p>
 <h3 id="running-examples">Running Examples</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>opentrans<span class="w"> </span>./Example/Docusaurus/docs<span class="w"> </span>./Example/Docusaurus/i18n/zh-hans/docusaurus-plugin-content-blog/current<span class="w"> </span>./config.yaml
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>opentrans<span class="w"> </span>./Example/Docusaurus/docs<span class="w"> </span>./Example/Docusaurus/i18n/zh-hans/docusaurus-plugin-content-blog/current<span class="w"> </span>./config.yaml<span class="w">    </span>
 </span></code></pre></div>
 <h2 id="local-development">Local Development</h2>
 <ol>
@@ -733,11 +733,11 @@ OpenTrans
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├── src/
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│   └── opentrans/
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>│       ├── __init__.py        
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│       ├── main.py            # 使用 Click 的 CLI 界面
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│       ├── settings.py        # 配置管理
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│       ├── translator.py      # 核心翻译逻辑
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│       ├── cache_manager.py   # 缓存系统
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│       └── hasher.py          # 文件内容哈希
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│       ├── main.py            # CLI interface using Click
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>│       ├── settings.py        # Configuration management
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>│       ├── translator.py      # Core translation logic
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>│       ├── cache_manager.py   # Caching system
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>│       └── hasher.py          # File content hashing
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>├── tests/
 </span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>├── config.yaml                
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>├── pyproject.toml
@@ -746,41 +746,41 @@ OpenTrans
 <h2 id="workflow">Workflow</h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>graph TD
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    %% Setup Phase
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    Start((Start)) --&gt; CheckRunning{Ollama 运行?}
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    CheckRunning -- No --&gt; Err[错误：启动 Ollama]
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    CheckRunning -- Yes --&gt; CheckModel{模型是否存在?}
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    Start((Start)) --&gt; CheckRunning{Ollama Running?}
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    CheckRunning -- No --&gt; Err[Error: Start Ollama]
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    CheckRunning -- Yes --&gt; CheckModel{Model Exists?}
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    CheckModel -- No --&gt; Pull[下载模型，带进度条]
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    CheckModel -- No --&gt; Pull[Download Model with Progress Bar]
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    Pull --&gt; Init
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    CheckModel -- Yes --&gt; Init[加载路径 &amp; 配置]
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    CheckModel -- Yes --&gt; Init[Load Paths &amp; Config]
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    %% The Loop
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    Init --&gt; NextFile{下一个文件?}
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    NextFile -- No --&gt; Exit([退出])
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    NextFile -- Yes --&gt; IsTranslatable{文件类型是否受支持?}
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    Init --&gt; NextFile{Next File?}
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    NextFile -- No --&gt; Exit([Exit])
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    NextFile -- Yes --&gt; IsTranslatable{File Type Supported?}
 </span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
 </span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    %% Branching Logic
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    IsTranslatable -- No --&gt; Mirror[复制原始文件]
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    IsTranslatable -- Yes --&gt; Shield[应用语法占位符 (代码/LaTeX)]
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    IsTranslatable -- No --&gt; Mirror[Copy Original File]
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    IsTranslatable -- Yes --&gt; Shield[Apply Syntax Placeholders]
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    Shield --&gt; Trans[通过 Ollama API 翻译]
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>    Trans --&gt; Restore[恢复保护的代码/数学]
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>    Restore --&gt; Save[创建目录 &amp; 保存文件]
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    Shield --&gt; Trans[Translate via Ollama API]
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>    Trans --&gt; Restore[Restore Protected Code/Math]
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>    Restore --&gt; Save[Create Dir &amp; Save File]
 </span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>    Save --&gt; NextFile
 </span></code></pre></div>
-<h2 id="_2">未完成事项</h2>
+<h2 id="todo">Todo</h2>
 <ul>
-<li>[x] 基于 Click 的 CLI 界面</li>
-<li>[x] 基于占位符的语法保护 (代码/LaTeX)</li>
-<li>[x] 多线程并行处理</li>
-<li>[x] 实现哈希缓存，跳过未更改的文件</li>
-<li>[ ] 完成 Docusaurus 翻译脚本</li>
-<li>[ ] 使用 User Tree-sitter 替代代码块，在翻译之前进行处理</li>
-<li>[ ] 增加对更多文件类型的支持</li>
+<li>[x] Click-based CLI interface</li>
+<li>[x] Placeholder-based syntax protection (Code/LaTeX)</li>
+<li>[x] Multi-threaded parallel processing</li>
+<li>[x] Implement hash caching to skip unchanged files</li>
+<li>[ ] Finish the Docusaurus translate script</li>
+<li>[ ] User Tree-sitter to replace the code blocks before translation instead of regex</li>
+<li>[ ] Add support for more file types</li>
 <li>[ ] ...</li>
 </ul>
-<h2 id="_3">许可证</h2>
-<p>该项目已根据 MIT 许可证进行许可。</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License.</p>
 
 
 
