@@ -3,7 +3,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from tqdm import tqdm
 
-from .settings import settings
+from . import config
 from .translator import Translator
 
 
@@ -17,7 +17,7 @@ from .translator import Translator
     type=click.Path(path_type=Path)
 )
 @click.argument(
-    'config',
+    'config_path',
     type=click.Path(path_type=Path)
 )
 @click.option('--model', '-m', default='translategemma:4b', help='Ollama model name.')
@@ -33,12 +33,12 @@ from .translator import Translator
     help='Directory where translated files will be saved.'
 )
 @click.option(
-    '--config', '-c',
+    '--config_path', '-c',
     type=click.Path(path_type=Path),
     help='Custom path to a config.yaml settings file.'
 )
 
-def main(input_dir, output_dir, config, model, lang):
+def main(input_dir, output_dir, config_path, model, lang):
     """
     OpenTrans: Batch translate documentation using local Ollama LLMs.
 
@@ -51,39 +51,40 @@ def main(input_dir, output_dir, config, model, lang):
     - Parallel Processing: High-speed batch handling for large documentation sets.
     - Structure Preservation: Mirror your source directory exactly in the output.
     """
-    if config:
-      settings.model_config['yaml_file'] = config
+    
+    if config_path:
+      config.load_config(config_path)
 
     if input_dir:
-      settings.input_dir = input_dir.resolve()
+      config.settings.input_dir = input_dir.resolve()
 
     if output_dir:
-      settings.output_dir = output_dir.resolve()
+      config.settings.output_dir = output_dir.resolve()
     
     if model:
-      settings.ollama_model = model
+      config.settings.ollama_model = model
     
     if lang:
-      settings.target_lang = lang
+      config.settings.target_lang = lang
 
-    if not settings.input_dir.exists():
+    if not config.settings.input_dir.exists():
       click.echo(
-        f"Error: Input directory {settings.input_dir} does not exist.", err=True)
+        f"Error: Input directory {config.settings.input_dir} does not exist.", err=True)
       return
 
-    all_files = [f for f in settings.input_dir.rglob('*') if f.is_file()]
+    all_files = [f for f in config.settings.input_dir.rglob('*') if f.is_file()]
 
-    click.echo(f"Target Language: {settings.target_lang}")
-    click.echo(f"Input:  {settings.input_dir}")
-    click.echo(f"Output: {settings.output_dir}")
-    click.echo(f"Using Model: {settings.ollama_model}")
+    click.echo(f"Target Language: {config.settings.target_lang}")
+    click.echo(f"Input:  {config.settings.input_dir}")
+    click.echo(f"Output: {config.settings.output_dir}")
+    click.echo(f"Using Model: {config.settings.ollama_model}")
 
-    translator = Translator(output_dir / settings.cache_filename)
-    with ThreadPoolExecutor(max_workers=settings.max_parallel_files) as executor:
+    translator = Translator(output_dir / config.settings.cache_filename)
+    with ThreadPoolExecutor(max_workers=config.settings.max_parallel_files) as executor:
       list(tqdm(
         executor.map(
           lambda f: translator.process_file(
-              f, settings.input_dir, settings.output_dir),
+              f, config.settings.input_dir, config.settings.output_dir),
           all_files
         ),
         total=len(all_files),

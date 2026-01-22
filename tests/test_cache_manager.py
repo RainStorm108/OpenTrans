@@ -1,6 +1,7 @@
 import pytest
 from opentrans.cache_manager import CacheManager
 
+
 @pytest.fixture
 def tmp_cache(tmp_file):
     return CacheManager(tmp_file)

@@ -4,7 +4,7 @@ import ollama
 from pathlib import Path
 from shutil import copy2
 import threading
-from .settings import settings
+from . import config
 from .cache_manager import CacheManager
 import logging
 import re
@@ -55,7 +55,7 @@ class Translator:
       combined_pattern = '|'.join(f'(?:{p})' for p in patterns)
       return re.sub(combined_pattern, lambda m: protect_callback(m.group(0)), text)
   
-    def translate_text(self, text: str, target_lang: str = settings.target_lang, model: str = settings.ollama_model) -> str:
+    def translate_text(self, text: str, target_lang: str, model: str) -> str:
         """
         Sends text to the Ollama API for translation using a specified model,
         protecting technical syntax with temporary placeholders.
@@ -78,12 +78,10 @@ class Translator:
         protected_text = self.protect_syntax(text, protect)
         
         system_prompt = (
-            f"You are an expert technical translator. Translate the document into {target_lang}.\n"
-            "CRITICAL: Do not modify or translate tokens like [[DOC_REF_N]].\n"
-            "Preserve all structural symbols. Output ONLY the translated text."
+            f"Translate the following document to {target_lang}. Maintain the original formatting and structure as much as possible. If the direct translation is not possible, provide a clear and accurate translation while prioritizing readability and natural language. Output the translated document. The original document: "
         )
 
-        user_prompt = f"TEXT TO TRANSLATE:\n\n{protected_text}"
+        user_prompt = f"\n\n{protected_text}"
 
         try:
             ollama.chat(model)
@@ -100,7 +98,7 @@ class Translator:
             response = ollama.chat(
                 model=model,
                 messages=messages,
-                options={"temperature": settings.temperature}
+                options={"temperature": config.settings.temperature}
             )
             translated = response['message']['content'].strip()
 
@@ -131,10 +129,10 @@ class Translator:
 
         new_file_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if file_path.suffix in settings.translate_file_types:
+        if file_path.suffix in config.settings.translate_file_types:
             content = file_path.read_text(encoding='utf-8')
             translated = self.translate_text(
-                content, settings.target_lang, settings.ollama_model)
+                content, config.settings.target_lang, config.settings.ollama_model)
             new_file_path.write_text(translated, encoding='utf-8')
         else:
             copy2(file_path, new_file_path)

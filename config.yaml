@@ -1,7 +1,7 @@
 # Translation Settings
 target_lang: "Chinese"
-ollama_model: "translategemma:4b"
-temperature: 0.5
+ollama_model: "translategemma:12b"
+temperature: 0.1
 max_parallel_files: 2
 
 # Path Settings

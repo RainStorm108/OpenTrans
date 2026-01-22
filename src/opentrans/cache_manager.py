@@ -1,9 +1,8 @@
 import json
-import os
 from pathlib import Path
 from .hasher import get_file_hash
 from typing import Union
-from .settings import settings
+from . import config
 
 class CacheManager:
   """
@@ -12,6 +11,7 @@ class CacheManager:
   def __init__(self, cache_file: Path):
     self.cache_file = cache_file
     self.cache = self._load_cache()
+    self.hash_method = config.settings.hash_algo
   
   def __del__(self):
     self.save() 
@@ -48,7 +48,7 @@ class CacheManager:
     Returns:
         bool: True if changed else False
     """
-    return self.cache.get(str(file_path)) != get_file_hash(file_path, settings.hash_algo)
+    return self.cache.get(str(file_path)) != get_file_hash(file_path, self.hash_method)
   
   def __contains__(self, file_path: Union[Path, str]):
     return str(file_path) in self.cache
@@ -60,7 +60,7 @@ class CacheManager:
     Args:
         file_path (Path): File to update
     """
-    self.cache[str(file_path)] = get_file_hash(file_path, settings.hash_algo)
+    self.cache[str(file_path)] = get_file_hash(file_path, self.hash_method)
   
   def save(self):
     with open(self.cache_file, "w") as f:
